@@ -3,6 +3,7 @@ import {  Work_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import TestimonialSection from "@/sections/Testimonial";
 
 const roboto = Work_Sans({
   weight: '400',
@@ -29,6 +30,7 @@ export default function RootLayout({
         
         
         {children}
+        <TestimonialSection />
 
       <Footer/>
       </body>
