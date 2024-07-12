@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {  Work_Sans } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Work_Sans({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="light">
+      <body className={roboto.className}>
+        <div className="container bg-no-repeat bg-cover bg-center rounded-md h-[60vh] md:h-[100vh]" style={{ backgroundImage: `url(images/jugyahbg.png)` }}></div>
+        <Navbar />
+        
+        
+        {children}
+
+      <Footer/>
+      </body>
     </html>
   );
 }
