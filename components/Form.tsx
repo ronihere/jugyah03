@@ -20,7 +20,7 @@ const Form = () => {
 
     const onSubmit = async (data: FieldValues) => {
         console.log('formData:::', { ...data }); // Submit form data here
-        await delay(3000);
+        await delay(4000);
         reset();
     };
     useEffect(() => {

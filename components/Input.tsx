@@ -33,5 +33,5 @@ const Input = forwardRef<HTMLInputElement, TInputProps>((props, ref) => {
         </div>
     );
 });
-
+Input.displayName = "Input"
 export default Input;
