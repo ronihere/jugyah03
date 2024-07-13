@@ -1,8 +1,9 @@
 'use client'
-import { TpropertyList } from '@/lib/utils'
+
 import React, { useState } from 'react'
 import PropertyCard from './propertyCard';
 import Button from './Button';
+import { TpropertyList } from '@/lib/constants';
 type TPropertyCardCarousalProps = {
     list: TpropertyList;
 }
@@ -10,8 +11,8 @@ export default function PropertyCardCarousal({ list }: TPropertyCardCarousalProp
     const [currentindex, setCurrentIndex] = useState(0);
   return (
       <div className='grid grid-cols-1 md:hidden mb-10 text-black'>
-          {list.map((ele, index) => {
-              return index===currentindex ? <PropertyCard/> : <></>
+          {list.map((property, index) => {
+              return index === currentindex ? <PropertyCard img={property.image_link} address={property.details.address} desc={property.details.description} bathroomNumber={property.details.bathrooms} roomArea={property.details.square_footage} bedNumber={property.details.bedrooms} price={property.price} /> : <></>
           })}
       
           <div className='flex mt-8 justify-between'>

@@ -3,6 +3,8 @@ import React from 'react'
 import { useForm, type FieldValues } from "react-hook-form";
 import Input from './Input';
 import Button from './Button';
+import { cityList, roomTypesList } from '@/lib/constants';
+import SelectDropdown from './SelectDropdown';
 const Form = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -47,6 +49,9 @@ const Form = () => {
                         {...register("Unit", { required: true })} // Registering email field with validation
                     />
                     {errors.Unit && <span className="error">Please enter a valid email address</span>}
+                    <SelectDropdown defaultSelected={null} id='Room Type' required={true} options={roomTypesList} />
+
+                    <SelectDropdown defaultSelected={null} id='City' required={true} options={cityList} />
                     <Input
                         className=''
                         required={true}
@@ -56,6 +61,9 @@ const Form = () => {
                         {...register("Price", { required: true })} // Registering email field with validation
                     />
                     {errors.Price && <span className="error">Please enter a valid email address</span>}
+                    
+
+
                 </div>
 
                 <div className='grid grid-cols-1 gap-4 mt-4'>

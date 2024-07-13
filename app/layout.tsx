@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import {  Work_Sans } from "next/font/google";
+import {  Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import TestimonialSection from "@/sections/Testimonial";
+import BgImageSection from "@/sections/BgImageSection";
 
-const roboto = Work_Sans({
+const inter = Inter({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
@@ -24,8 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
-      <body className={roboto.className}>
-        <div className="container bg-no-repeat bg-cover bg-center rounded-md h-[60vh] md:h-[100vh]" style={{ backgroundImage: `url(images/jugyahbg.png)` }}></div>
+      <body className={inter.className}>
+        <BgImageSection/>
         <Navbar />
         
         

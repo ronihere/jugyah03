@@ -10,17 +10,11 @@ export default async function ListOfProperties() {
     return (
 
         <SectionHeader heading={"List of properties"} showButton={true} >
-            {/* <div className="grid grid-cols-1 md:hidden">
-                <PropertyCard />
-                <div>
-
-                </div>
-            </div> */}
             <PropertyCardCarousal list={propertyList } />
             <div className='hidden md:grid grid-cols-1 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 md:gap-8 items-center justify-between'>
-                <PropertyCard />
-                <PropertyCard />
-                <PropertyCard />
+                {
+                    propertyList.map((property) => <PropertyCard img={property.image_link} address={property.details.address} desc={property.details.description} bathroomNumber={property.details.bathrooms} roomArea={property.details.square_footage} bedNumber={property.details.bedrooms} price={property.price} />)
+                }
             </div>
         </SectionHeader >
     )
