@@ -29,7 +29,7 @@ Guaranteed' />
         <h3 className='font-bold text-2xl text-center text-black md:text-left md:text-5xl'>
           Flexibility and options to suit your lifestyle.
         </h3>
-        <p className='font-thin text-[#6B7280] text-sm text-center md:text-lg md:text-left md:font-thin'>
+        <p className='font-thin text-base-gray text-sm text-center md:text-lg md:text-left md:font-thin'>
           You need it? We got it. We make finding your next home easy, comfortable, and simple. From our happiness guarantee to our selective roommate finder option. We provide you the flexibility that you most desire.
 
         </p>

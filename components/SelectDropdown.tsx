@@ -45,7 +45,7 @@ export default function SelectDropdown({ required, id = "", className, options =
                 onClick={() => setIsExpanded(prev => !prev)}
             >
         
-                <p>{selectedItem ? <span className='font-black'>{selectedItem.value}</span> : <span className='text-[#A6AAB3]'>Select</span>}</p>
+                <p>{selectedItem ? <span className='font-black'>{selectedItem.value}</span> : <span className='text-select-gray'>Select</span>}</p>
                 <img src={ArrowIcon.src} className={`${isExpanded ? "rotate-180" : ""}`} alt='arrow icon' />
             </div>
 

@@ -12,7 +12,7 @@ export default function GlossyCard({
 } >
             <img src={img} alt={title} className={`${className} rounded-2xl object-cover `} />
             <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-            <p className='absolute m-auto top-6 font-semibold text-[#ffffff] text-sm md:text-md left-1/2 transform -translate-x-1/2'>
+            <p className='absolute m-auto top-6 font-semibold text-white text-sm md:text-md left-1/2 transform -translate-x-1/2'>
                 {title}
             </p>
     </div>

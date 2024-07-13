@@ -17,6 +17,9 @@ const config: Config = {
       colors: {
         "base_orange": "#F4511E",
         "darkGrayishBlue": 'hsl(227, 12%, 61%)',
+        "base-testimony": "#6D220A",
+        "base-gray": "#6B7280",
+        "select-gray":"#A6AAB3"
       },
       keyframes: {
         fadeRight: {
