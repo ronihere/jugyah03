@@ -5,7 +5,7 @@ type TMinimalCardProps = {
 }
 export default function MinimalCard({heading}:TMinimalCardProps) {
   return (
-    <div className='shadow-xl rounded-lg hover:scale-105 cursor-pointer transition-all'>
+    <div className='shadow-xl rounded-lg border hover:shadow-2xl cursor-pointer transition-all duration-400 ease-in'>
           <div className='flex'>
               <img src={minimalCardIcon.src} alt='minimal icon' className='pt-8 pl-10'/>
           </div>

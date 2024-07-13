@@ -5,12 +5,12 @@ import Image from 'next/image'
 export default function PropertyCard() {
     return (
   
-            <div className=" md:max-w-md">
-                <div className="flex flex-col h-full bg-white shadow-lg rounded-xl overflow-hidden">
+        <div className=" md:max-w-md cursor-pointer transition-all ">
+            <div className="flex flex-col h-full bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-xl duration-300 ease-in">
 
                     <a className="block" href="#0">
                         <figure className="relative h-0 pb-[66.25%] overflow-hidden">
-                            <img className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src={propertyImage.src} alt="Course" />
+                            <Image className="absolute inset-0 object-cover" fill={true} src={propertyImage.src} alt="Course" />
                         </figure>
                     </a>
 
