@@ -8,7 +8,7 @@ import SelectDropdown from './SelectDropdown';
 const Form = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = (data: FieldValues) => {
         console.log(data); // Submit form data here
     };
 
@@ -16,7 +16,7 @@ const Form = () => {
         <div className='flex flex-col text-black bg-white shadow-2xl rounded-xl py-8'>
             <h3 className='font-bold text-base_orange text-lg text-center'>Add A New Property</h3>
 
-            <form className='p-4' onSubmit={() => { }}>
+            <form className='p-4' onSubmit={handleSubmit(onSubmit)}>
                 <div className='grid grid-cols-1 md:grid-cols-3 md:gap-4 '>
 
                     <Input
