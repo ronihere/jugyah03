@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface TInputProps {
     type: string;
@@ -22,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, TInputProps>((props, ref) => {
             </div>
             <input
                 ref={ref}
-                className={`${className} border h-14 rounded-md p-2`}
+                className={twMerge(`border h-14 rounded-md p-2`, '')}
                 type={type}
                 required={required}
                 id={id}

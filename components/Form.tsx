@@ -1,16 +1,41 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm, type FieldValues } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Input from './Input';
 import Button from './Button';
 import { cityList, roomTypesList } from '@/lib/constants';
+import {z} from 'zod'
+import FormSelect from './FormSelect';
+import { delay } from '@/lib/utils';
 import SelectDropdown from './SelectDropdown';
-const Form = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = (data: FieldValues) => {
-        console.log(data); // Submit form data here
+const propertyAddSchema = z.object({
+    Name: z.string().min(1, 'Name must be longer'),
+    Address: z.string().min(10, "More inputs needed"),
+    Unit: z.coerce.number().min(0, "Must be a positive"),
+    description: z.string().min(4, "add something more"),
+    roomtype: z.string().min(1, 'required'),
+    city: z.string().min(1, 'required'),
+    Price: z.coerce.number().min(1, 'Price should not be this small'),
+    file: z.any()
+
+})
+
+type TPropertyAddSchema = z.infer<typeof propertyAddSchema>
+const Form = () => {
+    const { register, handleSubmit, formState: { errors , isSubmitting} , reset} = useForm<TPropertyAddSchema>({
+        resolver: zodResolver(propertyAddSchema)
+    });
+
+    const onSubmit = async(data: FieldValues) => {
+        console.log('formData:::', data); // Submit form data here
+        await delay(3000);
+        reset();
     };
+    useEffect(() => {
+        console.log(errors, 'huh')
+    },[errors, isSubmitting])
 
     return (
         <div className='flex flex-col text-black bg-white shadow-2xl rounded-xl py-8'>
@@ -20,47 +45,53 @@ const Form = () => {
                 <div className='grid grid-cols-1 md:grid-cols-3 md:gap-4 '>
 
                     <Input
-                        className=''
+                        className={`${errors.Name ? "outline-red-400" : ""}`}
                         type="text"
                         required={true}
                         id="Name"
                         placeHolder='Enter Name'
-                        {...register("Name", { required: true })} // Registering name field with validation
+                        {...register("Name")} // Registering name field with validation
                     />
-                    {errors.name && <span className="error">Name is required</span>}
+                    {errors.Name && <span className="text-red-500">{`${errors.Name.message}`}</span>}
 
-                    {/* Email Input */}
+                 
                     <Input
-                        className=''
+                        className={`${errors.Address ? "outline-red-400" : ""}`}
                         required={true}
                         type="text"
                         id="Address"
                         placeHolder='Enter Address'
-                        {...register("Address", { required: true })} // Registering email field with validation
+                        {...register("Address")} // Registering email field with validation
                     />
-                    {errors.Address && <span className="error">Please enter a valid email address</span>}
+                    {errors.Address && <span className="text-red-500">{`${errors.Address.message}`}</span>}
 
                     <Input
-                        className=''
+                        className={`${errors.Unit ? "outline-red-400" : ""}`}
                         required={true}
                         type="text"
                         id="Unit"
                         placeHolder="Enter Unit"
-                        {...register("Unit", { required: true })} // Registering email field with validation
+                        {...register("Unit")} // Registering email field with validation
                     />
-                    {errors.Unit && <span className="error">Please enter a valid email address</span>}
+                    {errors.Unit && <span className="text-red-500">{`${errors.Unit.message}`}</span>}
                     <SelectDropdown defaultSelected={null} id='Room Type' required={true} options={roomTypesList} />
 
                     <SelectDropdown defaultSelected={null} id='City' required={true} options={cityList} />
+
+                    <FormSelect defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} />
+                    <FormSelect defaultSelected={null} id='City' required={true} options={cityList.slice(0, 5)} {
+                        ...register('city')
+                    } />
+
                     <Input
-                        className=''
+                        className={`${errors.Price ? "outline-red-400" : ""}`}
                         required={true}
                         type="text"
                         id="Price"
                         placeHolder='Enter Price'
-                        {...register("Price", { required: true })} // Registering email field with validation
+                        {...register("Price")} // Registering email field with validation
                     />
-                    {errors.Price && <span className="error">Please enter a valid email address</span>}
+                    {errors.Price && <span className="text-red-500">{`${errors.Price.message}`}</span>}
                     
 
 
@@ -70,6 +101,7 @@ const Form = () => {
                     <div className=''>
                         <label htmlFor={'description'} className='font-bold cursor-pointer'>{"Description"}</label>
                         <textarea className='h-28 border-2 rounded-md w-full p-4' id='description' placeholder='Enter Description' {...register("description",)} />
+                        {errors.description && <span className="text-red-500">{`${errors.description.message}`}</span>}
                     </div>
                     <div className=''>
                         <label className="className='font-bold cursor-pointer" htmlFor='file'>
@@ -89,15 +121,18 @@ Click here to Upload Image
                                     <p className='text-gray-400 text-sm font-extralight'>
                                         Supported:  JPG, JPEG, PNG
                                     </p>
+                                <input
+                                    {...register('file')}
+                                    type="file" className='hidden' id='file'
+                                    accept="image/png, image/jpeg , image/jpg"  
+                                />
                                 </div>
-                                <input type="file" className='hidden' id='file' 
-                                    {...register("file",)} />
+                            
                             </div>
                         </label>
                     </div>
                 </div>
-                <Button className='w-full mt-8' clickHandler={() => { }}><span>Add New Property</span></Button>
-
+                <Button className='w-full mt-8' type="submit" disabled={isSubmitting}><span>Add New Property</span></Button>
             </form>
         </div>
     );

@@ -27,6 +27,9 @@ body {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+.error-message{
+  
+}
 
 /* For IE, Edge and Firefox */
 .scrollbar-hide {

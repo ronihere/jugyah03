@@ -11,7 +11,7 @@ export const getAllProperties = async () => {
   return propertyList;
 }
 
-function delay(ms: number) {
+export function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 

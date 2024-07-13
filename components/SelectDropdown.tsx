@@ -8,7 +8,7 @@ type OptionsObject = {
     id: string | number;
     value: string
 }
-type TSelectDropdown = {
+export type TSelectDropdown = {
     id?: string;
     options: OptionsObject[];
     defaultSelected: OptionsObject | null;
@@ -16,7 +16,7 @@ type TSelectDropdown = {
     className?: string
 }
 
-export default function SelectDropdown({ required, id = "",className, options = [], defaultSelected }: TSelectDropdown) {
+export default function SelectDropdown({ required, id = "", className, options = [], defaultSelected }: TSelectDropdown) {
     const [isExpanded, setIsExpanded] = useState(false);
     const [selectedItem, setSelectedItem] = useState(defaultSelected);
     const { ref: clickOutsideRef, isClickedOutside } = useClickOutside<HTMLDivElement>();
@@ -25,7 +25,7 @@ export default function SelectDropdown({ required, id = "",className, options = 
             setIsExpanded(false);
         }
     }, [isClickedOutside])
-    
+
 
 
     return (
@@ -42,24 +42,25 @@ export default function SelectDropdown({ required, id = "",className, options = 
                     ,
                     className
                 )}
-                onClick={()=> setIsExpanded(prev => !prev)}
+                onClick={() => setIsExpanded(prev => !prev)}
             >
+        
                 <p>{selectedItem ? <span className='font-black'>{selectedItem.value}</span> : <span className='text-[#A6AAB3]'>Select</span>}</p>
-                <img src={ArrowIcon.src} className={`${isExpanded ? "rotate-180" : ""}`} alt='arrow icon'/>
-                </div>
+                <img src={ArrowIcon.src} className={`${isExpanded ? "rotate-180" : ""}`} alt='arrow icon' />
+            </div>
 
             {isExpanded &&
                 <div className="z-10  bg-white divide-y divide-gray-100 rounded-lg shadow w-full absolute top-full">
                     <ul className="py-1 text-sm text-gray-700 dark:text-gray-200 max-h-36 w-full overflow-y-auto scrollbar-hide" aria-labelledby="states-button">
-                        {options.map((option , index) =>
-                            <li key={option.id} className='px-3' onClick={()=>setSelectedItem(option)}>
+                        {options.map((option, index) =>
+                            <li key={option.id} className='px-3' onClick={() => setSelectedItem(option)}>
                                 <button type="button" className="inline-flex w-full px-4 py-2 border-b-[1px] text-sm text-gray-700 hover:bg-gray-100 ">
                                     <div className="inline-flex items-center">
                                         {option.value}
                                     </div>
                                 </button>
                             </li>)}
-                       
+
                     </ul>
                 </div>
             }
