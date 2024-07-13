@@ -14,4 +14,5 @@ import minimalicon6 from './minimalIcon6.svg'
 import minimalicon7 from './minimalIcon7.svg'
 import minimalicon8 from './minimalIcon8.svg'
 import SearchIcon from './searchIcon.svg'
-export { Bed, ArrowIcon, minimalicon2, minimalicon3, minimalicon4, SearchIcon, minimalicon5, minimalicon6, minimalicon7, minimalicon8, BathTub, RoomArea, rightChevron, minimalCardIcon, BrandLogo, FooterIcons };
+import HamIcon from './Hamburger.svg'
+export { Bed,HamIcon, ArrowIcon, minimalicon2, minimalicon3, minimalicon4, SearchIcon, minimalicon5, minimalicon6, minimalicon7, minimalicon8, BathTub, RoomArea, rightChevron, minimalCardIcon, BrandLogo, FooterIcons };

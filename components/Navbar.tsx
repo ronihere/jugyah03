@@ -1,4 +1,4 @@
-import { BrandLogo } from '@/public/svgs'
+import { BrandLogo, HamIcon } from '@/public/svgs'
 import Link from 'next/link'
 import React from 'react'
 
@@ -9,6 +9,24 @@ export default function Navbar() {
           <div className='flex items-center justify-between'>
               <div className="cursor-pointer">
                   <img src={BrandLogo.src} alt='brand logo' className='w-[50%] mr-10 relative right-6 md:w-[80%]'></img>
+              </div>
+              <div className="group md:hidden relative">
+                  
+                    <img src={HamIcon.src} className='h-10 w-8 scale-90 hover:scale-95 transition-all'></img>
+                  <div className='absolute top-[100%] right-0 text-nowrap rounded-md hidden group-hover:flex group-hover:flex-col gap-2 text-sm bg-white text-black p-4'>
+                      <Link href="" className='hover:text-slate-300 transition-all '>Home</Link>
+                      <Link href="" className='hover:text-slate-300 transition-all '>Our Mission</Link>
+                      <Link href="" className='hover:text-slate-300 transition-all '>About Us</Link>
+                      <Link href="" className='hover:text-slate-300 transition-all '>LandLords</Link>
+                      <Link href="" className='hover:text-slate-300 transition-all '>Tenant</Link>
+                      <Link href="" className='hover:text-slate-300 transition-all '>Contact Us</Link>
+                      <Link href="" className='hover:text-slate-300 transition-all '>Sign up</Link>
+                      <Link href="" className='hover:text-slate-300 transition-all '>Log in</Link>
+
+                      
+                  </div>                 
+
+                  
               </div>
               <div className='hidden md:flex space-x-6 font-semibold'>
                   <Link href="" className='hover:text-slate-300 transition-all '>Home</Link>

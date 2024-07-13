@@ -14,7 +14,7 @@ export default function BgImageSection() {
                   The Most Affordable Place to Stay
               </p>
               <div className='flex w-full flex-col gap-2 md:h-fit md:flex-row md:justify-start md:items-center'>
-                  <div className='flex w-32 md:w-fit gap-2 justify-between'>
+                  <div className='flex w-full md:w-fit gap-2 justify-between'>
                       <SelectDropdown className='w-24' defaultSelected={leaseRentBuyOptions[0]} id='' options={leaseRentBuyOptions} required={false} />
                       <Input placeHolder='Search Locality' ></Input>
                   </div>

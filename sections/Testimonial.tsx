@@ -1,5 +1,5 @@
 'use client'
-import TestimonialCarouselContainer, { CarouselItem } from '@/components/TestimonialCarouselContainer'
+import  { CarouselItem } from '@/components/TestimonialCarouselContainer'
 import useElementWidth from '@/hooks/useElementWidth';
 import React, { useEffect, useState } from 'react'
 const testimonials = new Array(3).fill(null)
@@ -26,7 +26,7 @@ export default function TestimonialSection() {
              */}
             <div className='flex flex-col relative text-black p-2 basis-1/2 md:justify-center md:p-16 gap-4 md:gap-8 '>
                 {/* <div className='flex flex-col relative text-black p-2 basis-1/2 md:justify-center md:p-16 gap-4 md:gap-8 transition-transform ease-out duration-500' > */}
-                <div ref={ref} className='flex transition-transform ease-in max-w-96 duration-700 overflow-hidden' style={{transform:`translateX(${currentindex*width})`}}>
+                <div ref={ref} className='flex transition-transform ease-in duration-700 overflow-hidden' style={{transform:`translateX(${currentindex*width})`}}>
                    
                 <CarouselItem name={currentindex + ' Harry Wilson'} />
                 {/* <CarouselItem name={currentindex + ' Harry Wilson'} /> */}

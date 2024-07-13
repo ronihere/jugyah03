@@ -74,9 +74,7 @@ const Form = () => {
                         {...register("Unit")} // Registering email field with validation
                     />
                     {errors.Unit && <span className="text-red-500">{`${errors.Unit.message}`}</span>}
-                    <SelectDropdown defaultSelected={null} id='Room Type' required={true} options={roomTypesList} />
-
-                    <SelectDropdown defaultSelected={null} id='City' required={true} options={cityList} />
+                    
 
                     <FormSelect defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} />
                     <FormSelect defaultSelected={null} id='City' required={true} options={cityList.slice(0, 5)} {
