@@ -16,8 +16,8 @@ export default function TestimonialSection() {
     }, [])
     return (
         <div className='flex flex-col md:flex-row-reverse bg-[#FEF3EF] px-2 md:p-0 mt-4 gap-8 w-full'>
-            <div className='w-full basis-1/2 p-2 md:p-'>
-                <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoPlay muted className='h-full'></video>
+            <div className='w-full basis-1/2'>
+                <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" autoPlay muted loop className='h-full'></video>
             </div>
 
             <div className='flex flex-col relative text-black p-2 basis-1/2 md:justify-center md:p-16 gap-4 md:gap-8 '>
