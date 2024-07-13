@@ -18,6 +18,33 @@ const config: Config = {
         "base_orange": "#F4511E",
         "darkGrayishBlue": 'hsl(227, 12%, 61%)',
       },
+      keyframes: {
+        fadeRight: {
+          "0%": {
+            opacity: "1",
+            transform: "translateX(500px)",
+          },
+          "10%": {
+            opacity: "1",
+            transform: "translateX(0px)",
+          },
+          "50%": {
+            opacity: "1",
+            transform: "translateX(0px)",
+          },
+          "90%": {
+            opacity: "1",
+            transform: "translateX(0px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(-500px)",
+          },
+        },
+      },
+      animation: {
+        fr: "fadeRight 6s linear infinite",
+      },
     },
   },
   plugins: [

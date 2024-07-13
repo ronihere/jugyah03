@@ -1,5 +1,4 @@
 import React from 'react'
-import propertyImage from '@/public/images/jugyah1.png'
 import { BathTub, Bed, RoomArea } from '@/public/svgs'
 import Image from 'next/image'
 type TPropertyCardProps = {
@@ -15,7 +14,7 @@ export default function PropertyCard({ img, price, desc, address, bedNumber, bat
     return (
   
         <div className=" md:max-w-md cursor-pointer transition-all ">
-            <div className="flex flex-col h-full bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-gray-400 duration-300 ease-in">
+            <div className="flex flex-col h-full bg-white shadow-lg rounded-xl overflow-hidden md:hover:shadow-gray-400 duration-300 ease-in">
 
                     <a className="block" href="#0">
                         <figure className="relative h-0 pb-[66.25%] overflow-hidden">

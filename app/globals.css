@@ -27,8 +27,8 @@ body {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
-.error-message{
-  
+::file-selector-button {
+  display: none;
 }
 
 /* For IE, Edge and Firefox */
