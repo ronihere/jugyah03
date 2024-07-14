@@ -17,10 +17,10 @@ export default function BgImageSection() {
                             The Most Affordable Place to Stay
                         </p>
                         <div className='flex w-full md:w-fit gap-2 justify-center items-center'>
-                            <SelectDropdown className='w-18 ss:w-20' defaultSelected={leaseRentBuyOptions[0]} id='' options={leaseRentBuyOptions} required={false} />
-                            <div className='min-w-12 '>
-                                <Input placeHolder='Search Locality' className='w-fit'  ></Input>
+                            <div className='min-w-[4rem]'>
+                                <SelectDropdown className='w-full ss:w-20' defaultSelected={leaseRentBuyOptions[0]} id='' options={leaseRentBuyOptions} required={false} />
                             </div>
+                            <Input placeHolder='Search Locality' className='w-full min-w-12'  ></Input>
                             <Button className='hidden md:block md:w-fit h-14 md:mt-1'><span className="">
                                 <img src={SearchIcon.src} className='h-8' alt='search icon'></img>
                             </span></Button>
