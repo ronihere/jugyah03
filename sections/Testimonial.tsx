@@ -1,19 +1,12 @@
 'use client'
-import { CarouselItem } from '@/components/TestimonialCarouselContainer'
-import React, { useEffect, useState } from 'react'
-const testimonials = new Array(3).fill(null)
+import { CarouselItem } from '@/components/TestiMonyCarousel'
+import useScrollIndex from '@/hooks/useScrollIndex'
+import { testimonials } from '@/lib/constants';
+import React from 'react'
+
+
 export default function TestimonialSection() {
-    const [currentindex, setCurrentIndex] = useState(0);
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentIndex(prev => {
-                return ((prev + 1) % testimonials.length)
-            });
-        }, 6000);
-        return () => {
-            return clearInterval(timer);
-        }
-    }, [])
+    const { currentindex } = useScrollIndex(3, 0 ,true, 10000);
     return (
         <div className='flex flex-col md:flex-row-reverse bg-[#FEF3EF] px-2 md:p-0 mt-4 gap-8 w-full'>
             <div className='w-full basis-1/2'>
@@ -22,7 +15,7 @@ export default function TestimonialSection() {
 
             <div className='flex flex-col relative text-black p-2 basis-1/2 md:justify-center md:p-16 gap-4 md:gap-8 '>
                 <div className='flex overflow-hidden'>
-                    <CarouselItem name={currentindex +1 + ' Harry Wilson'} />
+                    <CarouselItem name={testimonials[currentindex].name} desc={testimonials[currentindex].desc} img={testimonials[currentindex].img || ""} />
                 </div>
                 <div className='flex gap-2'>
                     {testimonials.map((_, index) => {

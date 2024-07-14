@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import {  Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import TestimonialSection from "@/sections/Testimonial";
 import BgImageSection from "@/sections/BgImageSection";
 
 const inter = Inter({
@@ -32,7 +30,6 @@ export default function RootLayout({
         
         {children}
 
-        <TestimonialSection />
 
       <Footer/>
       </body>

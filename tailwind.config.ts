@@ -8,6 +8,24 @@ const config: Config = {
     "./sections/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
+    screens: {
+      'ss': '370px',
+      
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -23,30 +41,60 @@ const config: Config = {
       },
       keyframes: {
         fadeRight: {
+          // "0%": {
+          //   opacity: "1",
+          //   transform: "translateX(700px)",
+          // },
+          // "10%": {
+          //   opacity: "1",
+          //   transform: "translateX(400px)",
+          // },
+          // "50%": {
+          //   opacity: "1",
+          //   transform: "translateX(0px)",
+          // },
+          // "90%": {
+          //   opacity: "1",
+          //   transform: "translateX(-300px)",
+          // },
+          // "100%": {
+          //   opacity: "1",
+          //   transform: "translateX(-700px)",
+          // },
+
           "0%": {
             opacity: "1",
-            transform: "translateX(500px)",
+            transform: "translateX(700px)",
           },
           "10%": {
             opacity: "1",
-            transform: "translateX(0px)",
+            transform: "translateX(400px)",
+          },
+          "30%": {
+            opacity: "1",
+            transform: "translateX(100px)",
           },
           "50%": {
             opacity: "1",
             transform: "translateX(0px)",
           },
+          "70%": {
+            opacity: "1",
+            transform: "translateX(-100px)",
+          },
+
           "90%": {
             opacity: "1",
-            transform: "translateX(0px)",
+            transform: "translateX(-400px)",
           },
           "100%": {
             opacity: "1",
-            transform: "translateX(-500px)",
+            transform: "translateX(-700px)",
           },
         },
       },
       animation: {
-        fr: "fadeRight 6s linear infinite",
+        fr: "fadeRight 10s linear infinite",
       },
     },
   },

@@ -2,6 +2,10 @@ import { minimalCardIcon, minimalicon2, minimalicon3, minimalicon4, minimalicon5
 import jugyah1 from '@/public/images/jugyah1.png';
 import jugyah2 from '@/public/images/jugyah2.png';
 import jugyah3 from '@/public/images/jugyah3.jpg';
+import testi1 from '@/public/images/testimonial1.jpg'
+import testi2 from '@/public/images/testimonial2.jpg'
+import testi3 from '@/public/images/testimonial3.jpg'
+
 
 const leaseRentBuyOptions = [
   {
@@ -180,6 +184,21 @@ const sellingPointList = [
 
 ]
 
+const testimonials = [{
+  name: "Harry Larsor",
+  desc: "The best testimonials are authentic. This is not a place for copywriters to fake it ‘till you make it… Your customer testimonials should be just that: from the customer. There are other places your copywriting can shine."
+  ,
+  image:testi1.src
+}, {
+  name: ' Joe Guten',
+  desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, a commodo eros mollis. Nunc vel pellentesque est. Curabitur at odio sit amet libero vulputate efficitur ac nec justo. Nulla vitae mauris quam. Nulla quam massa.",
+  img:testi2.src
+ }, {
+  name: 'Will Cally',
+  desc: "Testimonials aren’t the sort of thing you should ever be faking. Not only is this a terrible example of false advertising, but people can smell a fake testimonial a mile away. You’ll do far better using genuine, real testimonials from people who have actually benefitted from your brand. ",
+  img:testi3.src
+  }]
+
 export type TpropertyList = typeof propertyList
 
-export { cityList, roomTypesList, propertyList, sellingPointList, leaseRentBuyOptions };
+export { cityList, roomTypesList, propertyList, sellingPointList, leaseRentBuyOptions, testimonials};
