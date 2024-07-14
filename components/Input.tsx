@@ -23,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, TInputProps>((props, ref) => {
             </div>
             <input
                 ref={ref}
-                className={twMerge(`border h-14 rounded-md p-2`, className)}
+                className={twMerge(`border h-14 rounded-md p-2 text-black`, className)}
                 type={type}
                 required={required}
                 id={id}
