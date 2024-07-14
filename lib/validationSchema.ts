@@ -22,6 +22,17 @@ const propertyAddSchema = z.object({
     file: fileSchema
 
 })
+// const propertyAddSchema = z.object({
+//     Name: z.any(),
+//     Address: z.any(),
+//     Unit: z.any(),
+//     description: z.string().min(4, "add something more"),
+//     roomtype: z.string().min(1, 'required'),
+//     city: z.any(),
+//     Price: z.any(),
+//     file: z.any()
+
+// })
 
 type TPropertyAddSchema = z.infer<typeof propertyAddSchema>
 

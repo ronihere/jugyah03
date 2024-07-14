@@ -8,6 +8,7 @@ import { cityList, roomTypesList } from '@/lib/constants';
 import FormSelect from './FormSelect';
 import { delay } from '@/lib/utils';
 import { propertyAddSchema, TPropertyAddSchema } from '@/lib/validationSchema';
+import SelectDropdown from './SelectDropdown';
 
 const Form = () => {
     const { register, handleSubmit, watch, formState: { errors, isSubmitting }, reset } = useForm<TPropertyAddSchema>({
@@ -20,11 +21,11 @@ const Form = () => {
 
     const onSubmit = async (data: FieldValues) => {
         console.log('formData:::', { ...data }); // Submit form data here
-        await delay(4000);
+        await delay(3000);
         reset();
     };
     useEffect(() => {
-        console.log(errors,)
+        console.log(errors, )
     }, [errors, isSubmitting])
 
     return (
@@ -72,12 +73,11 @@ const Form = () => {
 
                     <div>
 
-                        <FormSelect className={`${errors.roomtype ? "outline-red-400" : ""}`} defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} />
+                        <SelectDropdown className={`${errors.roomtype ? "outline-red-400" : ""}`} defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} />
                         {errors.roomtype && <span className="text-red-500">{`${errors.roomtype.message}`}</span>}
                     </div>
                     <div>
-
-                        <FormSelect className={`${errors.city ? "outline-red-400" : ""}`} defaultSelected={null} id='City' required={true} options={cityList.slice(0, 5)} {
+                        <SelectDropdown className={`${errors.city ? "outline-red-400" : ""}`} defaultSelected={null} id='City' required={true} options={cityList.slice(0, 5)} {
                             ...register('city')
                         } />
                         {errors.city && <span className="text-red-500">{`${errors.city.message}`}</span>}
@@ -125,18 +125,18 @@ const Form = () => {
                                         Supported:  JPG, JPEG, PNG
                                     </p>
                                     {/* <div> */}
-
-                                    <input
-                                        {...register('file')}
-                                        type="file" className='w-0' id='file'
-                                        accept="image/*"
+                                    
+                                        <input
+                                            {...register('file')}
+                                            type="file" className='w-0' id='file'
+                                            accept="image/*"
                                     />
+                                    {fileSelected && fileSelected.length > 0 && <div>{fileSelected[0].name}</div>}
 
                                     {/* </div> */}
 
-                                    {fileSelected && fileSelected.length > 0 && <p className='w-full flex font-semibold justify-center items-center text-base_orange'>{fileSelected[0].name}</p>}
                                 </div>
-                                {errors.file && <span className="text-red-500">{`${errors.file.message}`}</span>}
+                                        {errors.file && <span className="text-red-500">{`${errors.file.message}`}</span>}
 
                             </div>
                         </label>
