@@ -27,10 +27,11 @@ export default function RootLayout({
     <html lang="en" className="light">
       <body className={inter.className}>
         <BgImageSection/>
-        <Navbar />
+        
         
         
         {children}
+
         <TestimonialSection />
 
       <Footer/>

@@ -5,10 +5,10 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-      <nav className='absolute top-0 w-full p-6 px-10'>
+      <nav className='absolute top-0 w-full py-6 px-4 md:px-10'>
           <div className='flex items-center justify-between'>
               <div className="cursor-pointer">
-                  <img src={BrandLogo.src} alt='brand logo' className='w-[50%] mr-10 relative right-6 md:w-[80%]'></img>
+                  <img src={BrandLogo.src} alt='brand logo' className='w-[50%] relative md:w-[80%]'></img>
               </div>
               <div className="group md:hidden relative">
                   
