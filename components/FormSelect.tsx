@@ -28,7 +28,7 @@ const FormSelect = forwardRef<HTMLSelectElement, TSelectDropdown>((props: TSelec
                 <option value=""> Select </option>
                 {options.map((option) => (
 
-                    <option className='p-10 w-full' value={option.value}>
+                    <option key={option.id} className='p-10 w-full' value={option.value}>
                         {option.value}
                     </option>
                 ))}

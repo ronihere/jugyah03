@@ -75,4 +75,6 @@ const SelectDropdown = forwardRef<HTMLInputElement, TSelectDropdown>((props, ref
         </div>
     )
 })
+
+SelectDropdown.displayName = 'SelectDropdown'
 export default SelectDropdown;
