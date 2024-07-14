@@ -73,11 +73,11 @@ const Form = () => {
 
                     <div>
 
-                        <SelectDropdown className={`${errors.roomtype ? "outline-red-400" : ""}`} defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} />
+                        <FormSelect className={`${errors.roomtype ? "outline-red-400" : ""}`} defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} />
                         {errors.roomtype && <span className="text-red-500">{`${errors.roomtype.message}`}</span>}
                     </div>
                     <div>
-                        <SelectDropdown className={`${errors.city ? "outline-red-400" : ""}`} defaultSelected={null} id='City' required={true} options={cityList.slice(0, 5)} {
+                        <FormSelect className={`${errors.city ? "outline-red-400" : ""}`} defaultSelected={null} id='City' required={true} options={cityList.slice(0, 5)} {
                             ...register('city')
                         } />
                         {errors.city && <span className="text-red-500">{`${errors.city.message}`}</span>}

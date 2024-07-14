@@ -8,7 +8,6 @@ import { forwardRef } from 'react';
 
 const FormSelect = forwardRef<HTMLSelectElement, TSelectDropdown>((props: TSelectDropdown, ref) => {
     const { required, id = "", className, options = [], defaultSelected, ...rest } = props;
-    console.log(options, 'options')
     return (
         <div className='flex flex-col gap-1 relative'>
             <div className='flex'>
@@ -28,12 +27,10 @@ const FormSelect = forwardRef<HTMLSelectElement, TSelectDropdown>((props: TSelec
             >
                 <option value=""> Select </option>
                 {options.map((option) => (
-                    <div key={option.id} className='hidden'>
 
-                    <option className='p-10 w-full hidden' value={option.value}>
+                    <option className='p-10 w-full' value={option.value}>
                         {option.value}
                     </option>
-                    </div>
                 ))}
             </select>
         </div>
