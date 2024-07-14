@@ -18,10 +18,10 @@ export default function BgImageSection() {
                         </p>
                         <div className='flex w-full md:w-fit gap-2 justify-center items-center'>
                             <div className='min-w-[4rem]'>
-                                <SelectDropdown className='w-full' defaultSelected={leaseRentBuyOptions[0]} id='' options={leaseRentBuyOptions} required={false} />
+                                <SelectDropdown className='w-full md:w-20' defaultSelected={leaseRentBuyOptions[0]} id='' options={leaseRentBuyOptions} required={false} />
                             </div>
-                            <Input placeHolder='Search Locality' className='w-full min-w-12'  ></Input>
-                            <Button className='hidden md:block md:w-fit h-14 md:mt-1'><span className="">
+                            <Input placeHolder='Search Locality' className='w-full min-w-12 md:ml-4'  ></Input>
+                            <Button className='hidden ml-4 md:block md:w-fit h-14 md:mt-1'><span className="">
                                 <img src={SearchIcon.src} className='h-8' alt='search icon'></img>
                             </span></Button>
                         </div>
