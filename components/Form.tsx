@@ -15,18 +15,13 @@ const Form = () => {
         resolver: zodResolver(propertyAddSchema)
     });
 
-    const fileSelected = watch("file", false)
-
-    console.log(fileSelected.length, 'file')
+    const fileSelected = watch("file", "");
 
     const onSubmit = async (data: FieldValues) => {
         console.log('formData:::', { ...data }); // Submit form data here
         await delay(3000);
         reset();
     };
-    useEffect(() => {
-        console.log(errors, )
-    }, [errors, isSubmitting])
 
     return (
         <div className='flex flex-col text-black bg-white shadow-2xl rounded-xl py-8'>
@@ -72,12 +67,13 @@ const Form = () => {
                     </div>
 
                     <div>
+                        {/* <FormSelect className={`${errors.roomtype ? "outline-red-400" : ""}`} defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} /> */}
 
-                        <FormSelect className={`${errors.roomtype ? "outline-red-400" : ""}`} defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} />
+                        <SelectDropdown className={`${errors.roomtype ? "outline-red-400" : ""}`} defaultSelected={null} id='Room Type' required={true} options={roomTypesList}{...register('roomtype')} />
                         {errors.roomtype && <span className="text-red-500">{`${errors.roomtype.message}`}</span>}
                     </div>
                     <div>
-                        <FormSelect className={`${errors.city ? "outline-red-400" : ""}`} defaultSelected={null} id='City' required={true} options={cityList.slice(0, 5)} {
+                        <SelectDropdown className={`${errors.city ? "outline-red-400" : ""}`} defaultSelected={null} id='City' required={true} options={cityList.slice(0, 5)} {
                             ...register('city')
                         } />
                         {errors.city && <span className="text-red-500">{`${errors.city.message}`}</span>}
@@ -124,7 +120,6 @@ const Form = () => {
                                     <p className='text-gray-400 text-sm font-extralight'>
                                         Supported:  JPG, JPEG, PNG
                                     </p>
-                                    {/* <div> */}
                                     
                                         <input
                                             {...register('file')}
@@ -133,7 +128,6 @@ const Form = () => {
                                     />
                                     {fileSelected && fileSelected.length > 0 && <div>{fileSelected[0].name}</div>}
 
-                                    {/* </div> */}
 
                                 </div>
                                         {errors.file && <span className="text-red-500">{`${errors.file.message}`}</span>}

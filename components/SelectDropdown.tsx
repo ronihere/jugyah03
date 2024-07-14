@@ -1,7 +1,7 @@
 'use client'
 import useClickOutside from '@/hooks/useClickOutside';
 import { ArrowIcon } from '@/public/svgs';
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { twMerge } from 'tailwind-merge';
 
 type OptionsObject = {
@@ -16,10 +16,10 @@ export type TSelectDropdown = {
     className?: string
 }
 
-const SelectDropdown = forwardRef<HTMLInputElement, TSelectDropdown>((props, ref) => {
+const SelectDropdown = forwardRef<HTMLSelectElement, TSelectDropdown>((props, ref) => {
     const { required, id = "", className, options = [], defaultSelected, ...rest } = props;
     const [isExpanded, setIsExpanded] = useState(false);
-    const [selectedItem, setSelectedItem] = useState(defaultSelected);
+    const [selectedItem, setSelectedItem] = useState(defaultSelected || options[0]);
     const { ref: clickOutsideRef, isClickedOutside } = useClickOutside<HTMLDivElement>();
     useEffect(() => {
         if (isClickedOutside) {
@@ -27,6 +27,16 @@ const SelectDropdown = forwardRef<HTMLInputElement, TSelectDropdown>((props, ref
         }
     }, [isClickedOutside])
 
+
+    //manually setting the value of the select element for validation with react-hook-form
+    useEffect(() => {
+        const element = document.getElementById(id);
+        if (element && selectedItem?.value) {
+            (element as HTMLSelectElement).value = selectedItem.value as string;
+        }
+    },[selectedItem])
+
+    // console.log('hiddentInput::', selectedItem);
 
 
     return (
@@ -37,14 +47,9 @@ const SelectDropdown = forwardRef<HTMLInputElement, TSelectDropdown>((props, ref
                     {required ? "*" : ""}
                 </span>
             </div>
-            <input
-                ref={ref}
-                type="hidden"
-                className='hidden'
-                // Replace with your form integration logic
-                value={selectedItem?.value} // Use selected item's id (if available)
-                {...rest}
-            />
+            <select ref={ref} id={id} className='w-0 h-0 absolute -z-10' {...rest}>
+                {options.map((option)=><option key={option.id} value={option.value}></option>)}
+            </select>
             <div
                 ref={clickOutsideRef}
                 className={twMerge(`border text-black bg-white h-14 w-full rounded-md p-2 flex justify-between items-center cursor-pointer`
