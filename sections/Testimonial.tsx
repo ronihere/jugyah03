@@ -14,7 +14,7 @@ export default function TestimonialSection() {
             </div>
 
             <div className='flex flex-col relative text-black p-2 basis-1/2 md:justify-center md:p-16 gap-4 md:gap-8 '>
-                <div className='flex overflow-hidden'>
+                <div className='flex overflow-hidden min-h-80'>
                     <CarouselItem name={testimonials[currentindex].name} desc={testimonials[currentindex].desc} img={testimonials[currentindex].img || ""} />
                 </div>
                 <div className='flex gap-2'>

@@ -8,7 +8,7 @@ type TCarouselItemProps = {
     desc: string;
 }
 export const CarouselItem = ({name, img, desc}:TCarouselItemProps) => {
-    return <div className='flex px-2 md:px-0 flex-col gap-8 w-full pb-10 animate-fr'>
+    return <div className='flex px-2 md:px-0 flex-col gap-8 w-full pb-10 h-full animate-ss sm:animate-fr'>
         <div className='text-left text-base-testimony relative py-8' >
             <p>
             {desc}
